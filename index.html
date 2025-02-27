@@ -3,403 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rider</title>
+    <title>badarni</title>
     <style>
-        /* Styling for the background */
-        #background {
-            position: relative;
-            background-image: url('motoXhub.jpg');
-            background-size: cover;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Styling for the text */
-        #motoXhub {
-            position: relative;   
-            color: orange; 
-            font-size: 60px;
-            text-align:left;
-            background-color: black;
-            animation: glow 1s ease-in-out infinite alternate; /* Added animation */
-        }
-
-        /* Keyframes for glowing effect */
-        @keyframes glow {
-            0% {
-                text-shadow: 0 0 20px orange;
-            }
-            100% {
-                text-shadow: 0 0 30px orange;
-            }
-        }
-
-        #search {
-            position: relative;
-            text-align: right;
-            margin-right: 15px;
-        }
-        #search input[type="text"] {
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-image: url('data:image/png;base64,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'); /* Add the icon image */
-            background-size: 20px; /* Set the size of the icon */
-            background-repeat: no-repeat;
-            background-position: 10px center; /* Position the icon */
-            transition: all 0.3s ease; /* Add transition for smooth effect */
-            text-align: center;
-        }
-
-        /* Styling for the search input on focus */
-        #search input[type="text"]:focus {
-            border-color: orange; /* Change border color on focus */
-            box-shadow: 0 0 5px orange; /* Add box shadow on focus */
-        }
-        #KTMs {
-            text-align: left;
-            margin-top: 20px;
-            margin-left: 25px;
-            display: inline;
-        }
-        #ninja {
-            text-align: left;
-            margin-top: 20px;
-            margin-left: 25px;
-            display: inline;
-        }
-        #honda {
-            text-align: left;
-            margin-top: 20px;
-            margin-left: 25px;
-            display: inline;
-        }
-        #dukati {
-            text-align: left;
-            margin-top: 20px;
-            margin-left:  25px;
-            display: inline;
-        }
-        #suzuki {
-            text-align: left;
-            margin-top: 20px;
-            margin-left: 25px;
-            display: inline;
-        }
-        /* Styling for the button */
-        #KTMs button {
-            width: 100px;
-            font-size: 16px;
-            background-color: orange;
-            color: black;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease; /* Added transition for smooth change */
-        }
-        #ninja button {
-            width: 100px;
-            font-size: 16px;
-            background-color: orange;
-            color: black;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease; /* Added transition for smooth change */
-        }
-        #honda button {
-            width: 100px;
-            font-size: 16px;
-            background-color: orange;
-            color: black;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease; /* Added transition for smooth change */
-        }
-        #dukati button {
-            width: 100px;
-            font-size: 16px;
-            background-color: orange;
-            color: black;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease; /* Added transition for smooth change */
-        }
-        #suzuki button {
-            width: 100px;
-            font-size: 16px;
-            background-color: orange;
-            color: black;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease; /* Added transition for smooth change */
-        }
-        /* Glowing effect on button hover */
-        #KTMs button:hover {
-            animation: glowButton 0.5s ease-in-out infinite alternate; /* Added animation on hover */
-            background-color: darkorange;
-            color: white;
-        }
-        #ninja button:hover {
-            animation: glowButton 0.5s ease-in-out infinite alternate; /* Added animation on hover */
-            background-color: darkorange;
-            color: white;
-        }
-        #honda button:hover {
-            animation: glowButton 0.5s ease-in-out infinite alternate; /* Added animation on hover */
-            background-color: darkorange;
-            color: white;
-        }
-        #dukati button:hover {
-            animation: glowButton 0.5s ease-in-out infinite alternate; /* Added animation on hover */
-            background-color: darkorange;
-            color: white;
-        }
-        #suzuki button:hover {
-            animation: glowButton 0.5s ease-in-out infinite alternate; /* Added animation on hover */
-            background-color: darkorange;
-            color: white;
-        }
-        /* Keyframes for button glowing effect on hover */
-        @keyframes glowButton {
-            0% {
-                box-shadow: 0 0 10px rgb(255, 255, 255);
-            }
-            100% {
-                box-shadow: 0 0 3cap rgb(0, 0, 0);
-            }
-        }
-    /* Your existing CSS styles */
-s
-    .container {
-            display: flex;
-            justify-content: flex-end; /* Align to the right */
-            align-items: flex-start;
-            height: 100vh;
-            position: relative;
-            padding-right: 20px; /* Adjust distance from the right edge */
-        }
-
-        .wire {
-    position: absolute;
-    top: 10px;
-    right: 65px;
-    width: 4px;
-    height: 190px;
-    background-color: #000;
-    margin-right: 192px;
-        }
-
-        .bulb {
-    width: 100px;
-    height: 100px;
-    border-radius: 40%;
-    background-color: #fdeeee;
-    position: relative;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: box-shadow 0.3s ease;
-    text-align: right;
-    float: right;
-    margin-right: 210px;
-}
-        .light {
-            box-shadow: 0 0 20px 10px #e6900f, 0 0 40px 20px #e8d50a, 0 0 80px 30px #f9ed69; /* Increase glow */
-        }
-.rectangle {
-    display: inline-block;
-    height: 290px; /* Adjust height as needed */
-    width: 220px; /* Adjust width as needed */
-    border: solid 2px black; /* Add border */
-    border-radius: 10px; /* Adjust border-radius for rounded corners */
-    margin: 30px; /* Adjust margin as needed */
-    text-align: center; /* Center text horizontally */
-    line-height: 150px; /* Center text vertically */
-    font-size: 14px; /* Adjust font size as needed */
-    background-color : #e6900f;/*set as you want */
-    transition: transform 0.3s ease;
-}
-.rectangle:hover {
-    transform: scale(1.1);
-    animation: glowButton 1s ease-in-out infinite alternate; /* Added animation on hover */
-            background-color: rgb(233, 8, 8);
-            color: white;
-            }
-            @keyframes carAnimation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-.loading-container {
-    position: fixed;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Center the element exactly */
-    width: 2000px; /* Adjust width */
-    height: 2000px; /* Adjust height */
-    background-color: rgba(255, 255, 255, 0.8);
-    display: flex;
-    justify-content: center;
+body{
+    background: #789;
+    height: 100vh;
+    width: 100vw;
     align-items: center;
-    z-index: 9999;
+    justify-content: center;
+    display: flex;
 }
+.container{
+    border: solid 2px;
+    border-radius: 15px ;
+    height: 70vh;
+    width: 60vw;
+    padding: 10px;
+    color: green;
 
-.loading-animation {
-    width: 1000px; /* Adjust size as needed */
-    height: 1000px; /* Adjust size as needed */
 }
-
-</style>
-</head>
-<body id="background">
-    <div id="motoXhub">
-        <u>motoXhub</u>
-    </div>
-    <br>
-    <div id="search">
-        <input type="text" name="search" placeholder="Ride Here....">
-    </div>
-    <hr>
-    <div id="KTMs">
-        <button> KTM </button>
-    </div>
-    <div id="ninja">
-        <button>Kawashaki </button>
-    </div>
-    <div id="honda">
-        <button> Honda </button>
-    </div>
-    <div id="dukati">
-        <button> Dukati </button>
-    </div>
-    <div id="suzuki">
-        <button> Suzuki </button>
-    </div>
-    <hr>
-    <div class="container">
-        <div class="wire"></div>
-        <div class="bulb" id="bulb" onclick="toggleBulb()"></div>
-    </div>
-    <span class="kawa">
-        <span id="h2r" class="rectangle">
-            <h1>H2R</h1>
-        </span>
-        <span id="zx10" class="rectangle">
-            <h1>Zx10R</h1>
-        </span>
-        <span id="h2" class="rectangle">
-            <h1>H2</h1>
-        </span>
-        <span id="zxrr" class="rectangle">
-            <h1>ZxRR</h1>
-        </span>
-    </span>
-    <span class="ktmss">
-        <span id="390" class="rectangle">
-            <h1>KTM390 DUKE</h1>
-        </span>
-        <span id="790" class="rectangle">
-            <h1>DUKE 790</h1>
-        </span>
-        <span id="200" class="rectangle">
-            <h1>RC200</h1>
-        </span>
-        <span id="125" class="rectangle">
-            <h1>RC125</h1>
-        </span>
-    </span>
-    <span class="hoonda">
-        <span id="250" class="rectangle">
-            <h1>CBR250</h1>
-        </span>
-        <span id="1000RR" class="rectangle">
-            <h1>CBR1000RR</h1>
-        </span>
-        <span id="CB" class="rectangle">
-            <h1>CB150</h1>
-        </span>
-        <span id="650" class="rectangle">
-            <h1>CB650F</h1>
-        </span>
-    </span>
-    <span class="DUKS">
-        <span id="V4" class="rectangle">
-            <h1>PANIGALE V4</h1>
-        </span>
-        <span id="DIAVEL" class="rectangle">
-            <h1>D.DIAVEL</h1>
-        </span>
-        <span id="MONS" class="rectangle">
-            <h1>D.MONSTER</h1>
-        </span>
-        <span id="SP" class="rectangle">
-            <h1>SUPER SPORT</h1>
-        </span>
-    </span>
-    <span class="Suzu">
-        <span id="G250" class="rectangle">
-            <h1>GIXXER250</h1>
-        </span>
-        <span id="GX" class="rectangle">
-            <h1>GSX</h1>
-        </span>
-        <span id="R" class="rectangle">
-            <h1>R1000</h1>
-        </span>
-        <span id="V" class="rectangle">
-            <h1>V-STROM</h1>
-        </span>
-    </span>
-    
-    
-    <div class="loading-container">
-        <!-- Your GIF loader -->
-        <img class="loading-animation" src="https://i.pinimg.com/originals/06/2e/d3/062ed354052f82087a97b5fe0c014f7c.gif" alt="Loading...">
-    </div>
-
-    
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-<script>
-        let isBulbOn = false;
-
-        function toggleBulb() {
-            const bulb = document.getElementById('bulb');
-            if (isBulbOn) {
-                bulb.classList.remove('light');
-            } else {
-                bulb.classList.add('light');
-            }
-            isBulbOn = !isBulbOn;
+@media(max-width:350px)
+        {
+            .container
+        {
+            border: solid 2px black;
+            border-radius:15px;
+            height: 70vh;
+            width: 60vw;
+            padding: 10px;
+            color: red;
         }
-        // JavaScript code to control when the loading animation appears/disappears
-document.addEventListener("DOMContentLoaded", function() {
-  // Hide the loading animation when content is loaded (for demo purposes)
-  setTimeout(function() {
-    document.querySelector('.loading-container').style.display = 'none';
-  }, 3000); // Hides the loading animation after 3 seconds (for demo)
-})
+        }
+    </style>
+</head>
 
-    </script>
+<body>
+    <div class="container"> 
+        
+<h3 align="center">For My Love </h3>
+Hey, Nothing i just wamt to tell you that i love more than any thing. I cant describe my
+love in words. I know you are upset sorry for the things I do unknowingly.
+<br>
+I love you sanu! <br>
+ummmah..........
 
+
+    </div>
+   
 </body>
 </html>
